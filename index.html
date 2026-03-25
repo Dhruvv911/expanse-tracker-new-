@@ -10,12 +10,14 @@
 
   <h2>💰 Expense Tracker</h2>
 
+  <!-- Dashboard -->
   <div class="dashboard">
     <div class="box">Today ₹<span id="today">0</span></div>
     <div class="box">Total ₹<span id="total">0</span></div>
     <div class="box">Left ₹<span id="left">5000</span></div>
   </div>
 
+  <!-- Add -->
   <div class="card">
     <input type="number" id="amount" placeholder="Enter Amount">
     <select id="category">
@@ -28,12 +30,20 @@
     <button onclick="startVoice()">🎤 Speak</button>
   </div>
 
+  <!-- List -->
   <div class="card">
     <ul id="list"></ul>
   </div>
 
+  <!-- Analytics -->
   <div class="card" id="analytics"></div>
 
+</div>
+
+<!-- 🔥 Bottom Navbar -->
+<div class="navbar">
+  <button onclick="showSection('home')">🏠</button>
+  <button onclick="showSection('stats')">📊</button>
 </div>
 
 <script src="script.js"></script>
