@@ -1,0 +1,22 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #111;
+  color: white;
+}
+
+input, select, button {
+  padding: 10px;
+  margin: 5px;
+}
+
+button {
+  background: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+li {
+  margin: 10px;
+}
