@@ -19,14 +19,14 @@ function addExpense() {
   showData();
 }
 
-// 🎤 Voice Input
+// 🎤 Voice
 function startVoice() {
   let recognition = new webkitSpeechRecognition();
   recognition.lang = "en-IN";
 
   recognition.onresult = function(event) {
     let text = event.results[0][0].transcript;
-    let amount = text.match(/\\d+/);
+    let amount = text.match(/\d+/);
 
     if (amount) {
       document.getElementById("amount").value = amount[0];
@@ -36,6 +36,7 @@ function startVoice() {
   recognition.start();
 }
 
+// 📊 Show Data
 function showData() {
   let list = document.getElementById("list");
   list.innerHTML = "";
@@ -50,7 +51,7 @@ function showData() {
     categoryTotal[e.category] += e.amount;
 
     let li = document.createElement("li");
-    li.innerHTML = `₹${e.amount} - ${e.category} 
+    li.innerHTML = `₹${e.amount} - ${e.category}
     <button onclick="del(${e.id})">X</button>`;
     list.appendChild(li);
   });
@@ -59,7 +60,6 @@ function showData() {
   document.getElementById("today").innerText = total;
   document.getElementById("left").innerText = budget - total;
 
-  // 🚨 Budget Alert
   if (total > budget) {
     alert("⚠️ Budget Cross Ho Gaya!");
   }
@@ -67,13 +67,14 @@ function showData() {
   showAnalytics(categoryTotal);
 }
 
+// ❌ Delete
 function del(id) {
   expenses = expenses.filter(e => e.id !== id);
   localStorage.setItem("expenses", JSON.stringify(expenses));
   showData();
 }
 
-// 📊 Graph
+// 📈 Graph
 function showAnalytics(data) {
   let div = document.getElementById("analytics");
   div.innerHTML = "<h3>📊 Spending</h3>";
@@ -87,6 +88,15 @@ function showAnalytics(data) {
       <p>${cat}: ₹${data[cat]}</p>
       <div class="bar" style="width:${percent}%"></div>
     `;
+  }
+}
+
+// 📱 Navbar switch (simple)
+function showSection(type) {
+  if (type === "home") {
+    alert("🏠 Home Screen");
+  } else {
+    alert("📊 Stats Screen");
   }
 }
 
