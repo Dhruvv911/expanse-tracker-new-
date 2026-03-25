@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Expense Tracker</title>
+  <title>Expense Tracker Pro</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>💰 Expense Tracker</h2>
+<div class="container">
 
-<input type="number" id="amount" placeholder="Enter Amount">
-<select id="category">
-  <option>Food</option>
-  <option>Travel</option>
-  <option>Recharge</option>
-</select>
-<button onclick="addExpense()">Add</button>
+  <h2>💰 Expense Tracker</h2>
 
-<h3>Total: ₹<span id="total">0</span></h3>
+  <div class="dashboard">
+    <div class="box">Today ₹<span id="today">0</span></div>
+    <div class="box">Total ₹<span id="total">0</span></div>
+    <div class="box">Left ₹<span id="left">5000</span></div>
+  </div>
 
-<ul id="list"></ul>
+  <div class="card">
+    <input type="number" id="amount" placeholder="Enter Amount">
+    <select id="category">
+      <option>Food</option>
+      <option>Travel</option>
+      <option>Recharge</option>
+    </select>
 
-<div id="analytics"></div>
+    <button onclick="addExpense()">Add Expense</button>
+    <button onclick="startVoice()">🎤 Speak</button>
+  </div>
+
+  <div class="card">
+    <ul id="list"></ul>
+  </div>
+
+  <div class="card" id="analytics"></div>
+
+</div>
 
 <script src="script.js"></script>
 </body>
